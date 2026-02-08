@@ -76,12 +76,8 @@ function Home() {
         </div>
       )}
 
-      {isRateLimited && (
-        <RateLimitedUI />
-      )}
-      {!loading && !isRateLimited && notes.length === 0 && (
-         <NotesNotFound />
-      )}
+      {isRateLimited && <RateLimitedUI />}
+      {!loading && !isRateLimited && notes.length === 0 && <NotesNotFound />}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 justify-items-center transition-all duration-300 ease-in-out opacity-100 animate-fadeIn">
         {notes.map((note) => (
@@ -94,7 +90,9 @@ function Home() {
               <h2 className="card-title">{note.title}</h2>
               <p>{note.content}</p>
               <div className="card-actions flex justify-between mt-4 items-center">
-                <p className="text-sm text-gray-400">{formatDate(note.createdAt)}</p>
+                <p className="text-sm text-gray-400">
+                  {formatDate(note.createdAt)}
+                </p>
                 <div className="flex gap-2">
                   <Trash2Icon
                     className="text-red-500 cursor-pointer"

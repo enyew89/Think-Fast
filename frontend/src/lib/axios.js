@@ -1,9 +1,10 @@
 import axios from "axios";
 
+const isDev = import.meta.env.MODE === "development";
+const baseURL = isDev ? "http://localhost:4000/api" : "/api";
 
-const baseURL = process.meta.env.MODE === "development" ? "http://localhost:4000/api" : "api";
 const axiosInstance = axios.create({
-  baseURL: baseURL,
+  baseURL,
 });
 
 export default axiosInstance;
